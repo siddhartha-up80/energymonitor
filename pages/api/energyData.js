@@ -5,7 +5,7 @@ import { connectToDB } from "@/utils/database";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
-      const { voltage, current, power, energy } = req.body;
+      let { voltage, current, power, energy } = req.body;
 
       // Process the incoming data as needed
       console.log("Received data from ESP32:");
