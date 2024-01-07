@@ -13,6 +13,20 @@ export default async function handler(req, res) {
         `Voltage: ${voltage}V, Current: ${current}A, Power: ${power}W, Energy: ${energy}kWh`
       );
 
+      // generate random values
+      voltage = Math.random() * (222 - 220) + 220;
+      current = Math.random() * (0.07 - 0.05) + 0.05;
+      power = Math.random() * (13.2 - 13) + 13;
+
+      const bulbPower = 0.013; // Convert watts to kilowatts
+
+      // Generate random value for time in hours (e.g., between 0.5 and 2 hours)
+      const timeInHours = Math.random() * (2 - 0.5) + 0.5;
+
+      // Calculate energy consumption
+      energy = bulbPower * timeInHours;
+
+
       // You can store the data in a database, perform additional calculations, etc.
       await connectToDB();
 
